@@ -31,7 +31,7 @@ $(
          * in the allFeeds object and ensures it has a URL defined
          * and that the URL is not empty.
          */
-      it("URL are not empty", () => {
+      it("URLs are not empty", () => {
         allFeeds.forEach(element => {
           expect(element.url).toBeDefined();
           expect(element.url).not.toBe("");
@@ -42,6 +42,12 @@ $(
          * in the allFeeds object and ensures it has a name defined
          * and that the name is not empty.
          */
+      it("names are not empty", () => {
+        allFeeds.forEach(element => {
+          expect(element.name).toBeDefined();
+          expect(element.name).not.toBe("");
+        });
+      });
     });
 
     /* TODO: Write a new test suite named "The menu" */
