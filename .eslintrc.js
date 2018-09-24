@@ -12,5 +12,14 @@ module.exports = {
     "linebreak-style": ["error", "unix"],
     quotes: ["error", "double"],
     semi: ["error", "always"]
+  },
+  globals: {
+    $: true,
+    Handlebars: true,
+    describe: true,
+    it: true,
+    expect: true,
+    beforeEach: true,
+    allFeeds: true
   }
 };

@@ -7,7 +7,7 @@
  */
 
 // The names and URLs to all of the feeds we'd like available.
-var allFeeds = [
+let allFeeds = [
   {
     name: "Udacity Blog",
     url: "http://blog.udacity.com/feed"
@@ -17,8 +17,8 @@ var allFeeds = [
     url: "http://feeds.feedburner.com/CssTricks"
   },
   {
-    name: "HTML5 Rocks",
-    url: "http://feeds.feedburner.com/html5rocks"
+    name: "Google Web Developers",
+    url: "https://developers.google.com/web/updates/rss.xml"
   },
   {
     name: "Linear Digressions",
@@ -44,7 +44,7 @@ function init() {
  * which will be called after everything has run successfully.
  */
 function loadFeed(id, cb) {
-  var feedUrl = allFeeds[id].url,
+  let feedUrl = allFeeds[id].url,
     feedName = allFeeds[id].name;
 
   $.ajax({
@@ -53,7 +53,7 @@ function loadFeed(id, cb) {
     data: JSON.stringify({ url: feedUrl }),
     contentType: "application/json",
     success: function(result, status) {
-      var container = $(".feed"),
+      let container = $(".feed"),
         title = $(".header-title"),
         entries = result.feed.entries,
         entriesLen = entries.length,
@@ -96,7 +96,7 @@ google.setOnLoadCallback(init);
  */
 $(
   (function() {
-    var container = $(".feed"),
+    let container = $(".feed"),
       feedList = $(".feed-list"),
       feedItemTemplate = Handlebars.compile($(".tpl-feed-list-item").html()),
       feedId = 0,
@@ -120,7 +120,7 @@ $(
      * (following the link) from occurring.
      */
     feedList.on("click", "a", function() {
-      var item = $(this);
+      let item = $(this);
 
       $("body").addClass("menu-hidden");
       loadFeed(item.data("id"));
