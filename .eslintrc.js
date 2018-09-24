@@ -20,6 +20,7 @@ module.exports = {
     it: true,
     expect: true,
     beforeEach: true,
-    allFeeds: true
+    allFeeds: true,
+    loadFeed: true
   }
 };

@@ -77,19 +77,40 @@ $(
     });
 
     /* TODO: Write a new test suite named "Initial Entries" */
-
-    /* TODO: Write a test that ensures when the loadFeed
+    describe("Initial Entries", () => {
+      /* TODO: Write a test that ensures when the loadFeed
          * function is called and completes its work, there is at least
          * a single .entry element within the .feed container.
          * Remember, loadFeed() is asynchronous so this test will require
          * the use of Jasmine's beforeEach and asynchronous done() function.
          */
+      beforeEach(done => {
+        loadFeed(0, done);
+      });
+
+      it("should have at least one entry in feed container", () => {
+        let feedContainer = document.querySelector(".feed");
+        expect(feedContainer.childElementCount).toBeGreaterThan(0);
+      });
+    });
 
     /* TODO: Write a new test suite named "New Feed Selection" */
-
-    /* TODO: Write a test that ensures when a new feed is loaded
+    describe("New Feed Selection", () => {
+      /* TODO: Write a test that ensures when a new feed is loaded
          * by the loadFeed function that the content actually changes.
          * Remember, loadFeed() is asynchronous.
          */
+      function getFeedContainerChildren() {
+        let feedContainer = document.querySelector(".feed");
+        expect(feedContainer.childElementCount).toBeGreaterThan(0);
+      }
+      it("should change content when a new feed is loaded", done => {
+        for (let id = 0; id < allFeeds.length; id++) {
+          if (id === 3) {
+            loadFeed(id, done);
+          } else loadFeed(id, getFeedContainerChildren);
+        }
+      });
+    });
   })()
 );
